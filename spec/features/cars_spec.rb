@@ -31,8 +31,21 @@ feature 'Manage Cars' do
     expect(page).to have_content 'Corolla'
     expect(page).to have_no_content 'Honda'
     expect(page).to have_no_content 'Civic'
-
-
   end
 
+  scenario 'User can delete car' do
+    visit '/'
+    click_on 'Add a car'
+    fill_in 'Make', with: 'Honda'
+    fill_in 'Model', with: 'Civic'
+    click_on 'Add car'
+    expect(page).to have_content 'Honda'
+    expect(page).to have_content 'Civic'
+    click_on 'Honda'
+    expect(page).to have_content 'Honda'
+    expect(page).to have_content 'Civic'
+    click_on 'Delete car'
+    expect(page).to have_no_content 'Honda'
+    expect(page).to have_no_content 'Civic'
+  end
 end
