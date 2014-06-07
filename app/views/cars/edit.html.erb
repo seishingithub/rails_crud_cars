@@ -8,14 +8,6 @@
     <%= f.text_field :model %>
   </p>
   <p>
-    <%= f.submit 'Add car' %>
+    <%= f.submit 'Update car' %>
   </p>
-<% end %>
-
-<% @cars.each do |car| %>
-<ul>
-  <li>
-    <%= link_to "#{car.make}", car_path(car) %>, <%= car.model %>
-  </li>
-</ul>
 <% end %>
